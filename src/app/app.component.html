@@ -1,16 +1,20 @@
 <main>
-  <app-learning-resources />
+  <app-learning-resources/>
 
   <hr />
 
-  <app-auth />
+  <app-auth/>
   <!-- Attribute directive -->
   <!-- <p appAuth="admin">Only admins should see this!</p> -->
 
   <!-- structural directive -->
-   <ng-template appAuthStr="admin">
+   <!-- <ng-template appAuthStr="admin">
     <p>Only admins should see this!</p>
-   </ng-template>
+   </ng-template> -->
 
+   <!-- structural directive with Syntactic sugar -->
 
+   <p *appAuthStr="'admin'" appLog class="protected-content admin">Only admins should see this!</p><!--single cotes to avoid the property to be seen as a hard coded property-->
+   <p *appAuthStr="'user'" class="protected-content unauthenticated">Regular users should see this!</p>
+   <p *appAuthStr="'guest'" class="protected-content authenticated">Guest users should see this!</p>
 </main>
